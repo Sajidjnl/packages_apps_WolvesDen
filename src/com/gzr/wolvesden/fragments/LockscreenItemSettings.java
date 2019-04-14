@@ -33,8 +33,14 @@ import com.android.settings.search.Indexable;
 import java.util.List;
 import java.util.ArrayList;
 
+import com.gzr.wolvesden.preference.CustomSeekBarPreference;
+
 public class LockscreenItemSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener, Indexable {
+
+    private static final String CUSTOM_TEXT_CLOCK_FONT_SIZE  = "custom_text_clock_font_size";
+
+    private CustomSeekBarPreference mCustomTextClockFontSize;
 
     private static final String TAG = "LockscreenItemSettings";
 
@@ -47,6 +53,12 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.omnijaws_settings);
+
+       // Custom Text Clock Size
+        mCustomTextClockFontSize = (CustomSeekBarPreference) findPreference(CUSTOM_TEXT_CLOCK_FONT_SIZE);
+        mCustomTextClockFontSize.setValue(Settings.System.getInt(getContentResolver(),
+                Settings.System.CUSTOM_TEXT_CLOCK_FONT_SIZE, 32));
+        mCustomTextClockFontSize.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -56,7 +68,15 @@ public class LockscreenItemSettings extends SettingsPreferenceFragment implement
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        return true;
+         ContentResolver resolver = getActivity().getContentResolver();
+
+         if (preference == mCustomTextClockFontSize) {
+            int top = (Integer) newValue;
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.CUSTOM_TEXT_CLOCK_FONT_SIZE, top*1);
+            return true;
+         }
+        return false;
     }
 
     public static final Indexable.SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
