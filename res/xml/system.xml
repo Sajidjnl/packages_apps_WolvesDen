@@ -15,11 +15,7 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/system_category"
-    android:layout="@layout/tab"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Preference
         android:key="app_ops"
@@ -89,6 +85,55 @@
         android:title="@string/notification_guts_kill_app_button_title"
         android:summary="@string/notification_guts_kill_app_button_summary"
         android:defaultValue="false" />
+
+    <com.gzr.wolvesden.preference.SystemSettingSwitchPreference
+        android:key="one_hand_mode_enabled"     
+        android:title="@string/one_hand_mode_enabled_title"             
+        android:summary="@string/one_hand_mode_enabled_summary"                   
+        android:defaultValue="false" />
+
+    <com.gzr.wolvesden.preference.SystemSettingListPreference
+        android:key="headset_connect_player"
+        android:title="@string/headset_connect_player_title"
+        android:dialogTitle="@string/headset_connect_player_title"
+        android:entries="@array/headset_connect_player_entries"
+        android:entryValues="@array/headset_connect_player_values"
+        android:defaultValue="0"
+        android:summary="%s" />  
+
+    <!-- Smart Pixels -->
+    <com.gzr.wolvesden.preference.SystemSettingSwitchPreference
+        android:key="smart_pixels_enable"
+        android:title="@string/smart_pixels_title"
+        android:summary="@string/smart_pixels_summary"
+        android:defaultValue="false"
+        android:fragment="com.gzr.wolvesden.fragments.SmartPixels" />
+
+    <com.gzr.wolvesden.preference.SystemSettingSwitchPreference
+        android:key="smart_pixels_on_power_save"
+        android:dependency="smart_pixels_enable"
+        android:title="@string/smart_pixels_on_power_save_title"
+        android:summary="@string/smart_pixels_on_power_save_summary"
+        android:defaultValue="false" />
+
+    <com.gzr.wolvesden.preference.SystemSettingListPreference
+        android:key="smart_pixels_pattern"
+        android:entries="@array/smart_pixels_percent_strings"
+        android:entryValues="@array/smart_pixels_percent_values"
+        android:defaultValue="3"
+        android:dependency="smart_pixels_enable"
+        android:title="@string/smart_pixels_percent"
+        android:dialogTitle="@string/smart_pixels_percent" />
+
+    <com.gzr.wolvesden.preference.SystemSettingListPreference
+        android:key="smart_pixels_shift_timeout"
+        android:entries="@array/smart_pixels_shift_times"
+        android:entryValues="@array/smart_pixels_shift_values"
+        android:defaultValue="5"
+        android:dependency="smart_pixels_enable"
+        android:title="@string/smart_pixels_shift_title"
+        android:summary="@string/smart_pixels_shift_summary"
+        android:dialogTitle="@string/smart_pixels_shift_title" />
 
     <PreferenceCategory
         android:id="@+id/Wakelocks_category"

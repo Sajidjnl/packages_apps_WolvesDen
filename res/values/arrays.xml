@@ -110,27 +110,33 @@
     <string-array name="lockscreen_clock_selection_entries" translatable="false">
         <item>@string/lockscreen_clock_selection_digital</item>
         <item>@string/lockscreen_clock_selection_digital_bold</item>
+        <item>@string/lockscreen_clock_selection_digital_accent</item>
+        <item>@string/lockscreen_clock_selection_digital_accent_hour</item>
+        <item>@string/lockscreen_clock_selection_digital_accent_min</item>
         <item>@string/lockscreen_clock_selection_analog</item>
         <item>@string/lockscreen_clock_selection_sammy</item>
         <item>@string/lockscreen_clock_selection_sammy_bold</item>
         <item>@string/lockscreen_clock_selection_sammy_accent</item>
-        <item>@string/lockscreen_clock_selection_sammy_accent_bold</item>
+        <item>@string/lockscreen_clock_selection_sammy_accent_bold_hour</item>
+        <item>@string/lockscreen_clock_selection_sammy_accent_bold_min</item>
         <item>@string/lockscreen_clock_selection_sammy_accent_alt</item>
-        <item>@string/lockscreen_clock_selection_sammy_accent_alt_bold</item>
         <item>@string/lockscreen_clock_selection_text</item>
     </string-array>
 
     <string-array name="lockscreen_clock_selection_values" translatable="false">
         <item>0</item>
         <item>1</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
         <item>5</item>
+        <item>10</item>
+        <item>11</item>
         <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
+        <item>12</item>
     </string-array>
 
     <!-- Status bar clock and date options -->
@@ -286,4 +292,53 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+    <!-- Lockscreen date styles -->
+    <string-array name="lockscreen_date_selection_entries" translatable="false">
+        <item>@string/lockscreen_date_selection_default</item>
+        <item>@string/lockscreen_date_selection_str_box</item>
+        <item>@string/lockscreen_date_selection_str_round</item>
+        <item>@string/lockscreen_date_selection_qbeta_style</item>
+        <item>@string/lockscreen_date_selection_str_accent</item>
+        <item>@string/lockscreen_date_selection_str_accent_day</item>
+        <item>@string/lockscreen_date_selection_str_accent_transparent</item>
+        <item>@string/lockscreen_date_selection_str_accent_transparent_day</item>
+        <item>@string/lockscreen_date_selection_str_gradient</item>
+        <item>@string/lockscreen_date_selection_str_border_accent</item>
+        <item>@string/lockscreen_date_selection_str_border_gradient</item>
+    </string-array>
+
+    <string-array name="lockscreen_date_selection_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+
+    <!-- Launch default music player on headset connection -->
+    <string-array name="headset_connect_player_entries">
+        <item>@string/headset_connect_player_disabled</item>
+        <item>@string/headset_connect_player_wired</item>
+        <item>@string/headset_connect_player_bt_no_carkit</item>
+        <item>@string/headset_connect_player_bt</item>
+        <item>@string/headset_connect_player_both_no_carkit</item>
+        <item>@string/headset_connect_player_both</item>
+    </string-array>
+
+    <string-array name="headset_connect_player_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
 </resources>

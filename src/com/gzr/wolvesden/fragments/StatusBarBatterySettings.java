@@ -39,6 +39,10 @@ public class StatusBarBatterySettings extends SettingsPreferenceFragment impleme
     private ListPreference mBatteryIconStyle;
     private ListPreference mBatteryPercentStyle;
 
+    private static final String KEY_ESTIMATE_IN_QQS = "show_battery_estimate_qqs";
+
+    private SystemSettingSwitchPreference mShowBatteryInQQS;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,9 @@ public class StatusBarBatterySettings extends SettingsPreferenceFragment impleme
         mBatteryPercentStyle.setValue(Integer.toString(Settings.Secure.getInt(resolver,
                 Settings.System.SHOW_BATTERY_PERCENT, 0)));
         mBatteryPercentStyle.setOnPreferenceChangeListener(this);
+
+        // Battery estimate in Quick QS
+        mShowBatteryInQQS = (SystemSettingSwitchPreference) findPreference(KEY_ESTIMATE_IN_QQS);
     }
 
     @Override
@@ -72,7 +79,21 @@ public class StatusBarBatterySettings extends SettingsPreferenceFragment impleme
             Settings.System.putInt(getContentResolver(),
                     Settings.System.SHOW_BATTERY_PERCENT, value);
             return true;
-        }
+	 } 
         return false;
+    }
+
+    private void updateShowBatteryInQQS(int value) {
+        switch (value) {
+            case 1: {
+                mShowBatteryInQQS.setEnabled(true);
+                break;
+            }
+            case 0:
+            case 2: {
+                mShowBatteryInQQS.setEnabled(false);
+                break;
+            }
+        }
     }
 }
